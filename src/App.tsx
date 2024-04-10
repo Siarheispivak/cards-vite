@@ -1,10 +1,9 @@
-import { Button } from '@/components/ui/button'
+import { TextField } from '@/shared/ui/text-field'
 
 export function App() {
   return (
     <div>
-      <Button as={'a'}>Link</Button>
-      <Button as={'button'}>Button</Button>
+      <TextField type={'search'} />
     </div>
   )
 }
