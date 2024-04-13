@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Checkbox } from '@/shared/ui/checkbox'
+import { Checkbox } from '@/shared/ui'
 
 import s from './shared/ui/checkbox/checkbox.module.scss'
 
@@ -10,8 +10,6 @@ export function App() {
   const onValueChange = () => {
     setChecked(!checked)
   }
-
-  console.log(checked)
 
   return (
     <div>
