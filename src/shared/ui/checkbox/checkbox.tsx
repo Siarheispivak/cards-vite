@@ -41,10 +41,11 @@ export const Checkbox: FC<CheckboxProps> = forwardRef<HTMLInputElement, Checkbox
                 onCheckedChange={onValueChange}
                 required={required}
               >
-                <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
-                  {checked && <Check />}
-                  {/*<Check />*/}
-                </CheckboxRadix.Indicator>
+                {checked && (
+                  <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
+                    <Check />
+                  </CheckboxRadix.Indicator>
+                )}
               </CheckboxRadix.Root>
             </div>
             {label}
