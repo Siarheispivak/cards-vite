@@ -28,8 +28,7 @@
   border-radius: 2px;
 
   &:focus {
-    //TODO:Разобраться со стилями в фокусе
-    //background-color: var(--color-light-100);
+    background-color: var(--color-dark-100);
   }
 
   &:disabled {
@@ -37,6 +36,7 @@
     border-color: var(--color-dark-100);
   }
 
+  //Селектор &[data-state='checked']:disabled применяет стили к элементам, у которых есть атрибут data-state со значением 'checked' и в то же время они являются отключенными.
   &[data-state='checked']:disabled {
     background-color: var(--color-light-100);
   }
