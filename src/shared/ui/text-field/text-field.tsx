@@ -1,18 +1,14 @@
 import React, { ComponentProps, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
 
-import { CloseIcon, Eye, VisibilityOff } from '@/shared/assets'
-import Search from '@/shared/assets/icons/search'
+import { CloseIcon, Eye, Search, VisibilityOff } from '@/shared/assets'
+import { Typography } from '@/shared/ui'
 import { clsx } from 'clsx'
 
-import s from '@/shared/ui/text-field/text-field.module.scss'
-
-import { Typography } from '../typography'
+import s from './text-field.module.scss'
 
 export type TextFieldProps = {
-  containerProps?: ComponentProps<'div'>
   errorMessage?: string
   label?: string
-  labelProps?: ComponentProps<'label'>
   onClearInput?: () => void
   onValueChange?: (value: string) => void
 } & ComponentPropsWithoutRef<'input'>
@@ -21,10 +17,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   (
     {
       className,
-      containerProps,
       errorMessage,
       label,
-      labelProps,
       onChange,
       onClearInput,
       onValueChange,
@@ -36,8 +30,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     ref
   ) => {
     const classNames = {
-      input: clsx(s.input),
-      inputContainer: clsx(s.inputContainer),
+      input: clsx(s.input, !!errorMessage && s.error, className),
+      inputContainer: clsx(s.inputContainer, !!errorMessage && s.error),
       inputWrapper: clsx(s.inputWrapper),
       label: clsx(s.label),
       root: clsx(s.root),
