@@ -1,3 +1,4 @@
+export { default as ArrowDownIcon } from './ArrowDownIcon'
 export { default as Check } from './check'
 export { default as Chevron } from './chevron'
 export { default as CloseIcon } from './close'
