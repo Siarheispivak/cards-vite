@@ -9,13 +9,13 @@ import clsx from 'clsx'
 import s from './checkbox.module.scss'
 
 export type CheckboxProps = {
-  checked: boolean
-  className: string
-  disabled: boolean
-  id: string
+  checked?: boolean
+  className?: string
+  disabled?: boolean
+  id?: string
   label?: string
   onValueChange?: (value: boolean) => void
-  position: 'left'
+  position?: 'left'
   required?: boolean
 } & ComponentPropsWithoutRef<'input'>
 export const Checkbox: FC<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxProps>(
