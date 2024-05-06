@@ -1,10 +1,19 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-import { privateRoutes, publicRoutes } from '@/app/routes'
+import { PrivateLayout } from '@/app/routes/layouts/private-layout'
+import { PublicLayout } from '@/app/routes/layouts/public-layout'
+import { privateRoutes } from '@/app/routes/private-routes'
+import { publicRoutes } from '@/app/routes/public-routes'
+import { Button } from '@/shared/ui'
 
 const router = createBrowserRouter([
-  { children: privateRoutes, element: <div>private</div> },
-  { children: publicRoutes, element: <div>public</div> },
+  {
+    children: [
+      { children: privateRoutes, element: <PrivateLayout /> },
+      { children: publicRoutes, element: <PublicLayout /> },
+    ],
+    element: <Button variant={'primary'}>Primary Button</Button>,
+  },
 ])
 
 export const Router = () => {
