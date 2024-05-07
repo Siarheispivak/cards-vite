@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, FC, forwardRef } from 'react'
+import React, { ComponentPropsWithoutRef, FC, forwardRef } from 'react'
 
 import { Check } from '@/shared/assets'
 import { Typography } from '@/shared/ui'
@@ -19,7 +19,7 @@ export type CheckboxProps = {
   required?: boolean
 } & ComponentPropsWithoutRef<'input'>
 export const Checkbox: FC<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ checked, className, disabled, id, label, onValueChange, position, required }) => {
+  ({ checked, className, disabled, id, label, onValueChange, position, required }, ref) => {
     const classNames = {
       buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled, position === 'left' && s.left),
       container: clsx(s.container, className),
@@ -39,6 +39,7 @@ export const Checkbox: FC<CheckboxProps> = forwardRef<HTMLInputElement, Checkbox
                 disabled={disabled}
                 id={id}
                 onCheckedChange={onValueChange}
+                ref={ref as React.RefObject<HTMLButtonElement>} //TODO:// без этого решения ошибку выдаёт!
                 required={required}
               >
                 {checked && (
