@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+
+  .nickName {
+    text-decoration: none;
+  }
+
+  .trigger {
+    all: unset;
+
+    cursor: pointer;
+
+    display: inline-flex;
+
+    height: 36px;
+    padding: 0;
+
+    border-radius: 50%;
+  }
+}
+
+.itemInformation {
+  display: flex;
+  gap: 8px;
+}
