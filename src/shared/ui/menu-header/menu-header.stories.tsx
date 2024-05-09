@@ -1,5 +1,3 @@
-import { MemoryRouter } from 'react-router-dom'
-
 import { MenuHeader } from '@/shared/ui/menu-header/menu-header'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -16,11 +14,4 @@ export const Default: Story = {
     email: 'Ivanov@gmail.com',
     name: 'Ivan',
   },
-  decorators: [
-    Story => (
-      <MemoryRouter initialEntries={['/']}>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
 }
