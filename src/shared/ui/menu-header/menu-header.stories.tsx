@@ -1,11 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import { MemoryRouter } from 'react-router-dom'
 
-import { MenuHeader } from './'
+import { MenuHeader } from '@/shared/ui/menu-header/menu-header'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   component: MenuHeader,
   tags: ['autodocs'],
-  title: 'Components/UI/MenuHeader',
+  title: 'Layout/MenuHeader',
 } satisfies Meta<typeof MenuHeader>
 
 export default meta
@@ -15,4 +16,11 @@ export const Default: Story = {
     email: 'Ivanov@gmail.com',
     name: 'Ivan',
   },
+  decorators: [
+    Story => (
+      <MemoryRouter initialEntries={['/']}>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
 }
