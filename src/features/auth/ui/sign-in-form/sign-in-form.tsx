@@ -28,7 +28,7 @@ export const SignInForm = (props: Props) => {
   return (
     <>
       <DevTool control={control} />
-      <Card className={s.card}>
+      <Card>
         <div className={s.formContainer}>
           <Typography className={s.title} variant={'large'}>
             Sign In

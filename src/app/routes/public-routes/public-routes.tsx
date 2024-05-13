@@ -1,8 +1,14 @@
 import { RouteObject } from 'react-router-dom'
 
+import { SignInForm } from '@/features/auth/ui'
+
 export const publicRoutes: RouteObject[] = [
   {
-    element: <div>PUBLIC</div>,
+    element: (
+      <div>
+        <SignInForm onSubmit={() => {}} />
+      </div>
+    ),
     path: '/login',
   },
 ]
