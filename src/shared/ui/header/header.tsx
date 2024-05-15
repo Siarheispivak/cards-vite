@@ -1,19 +1,21 @@
 import { LogoIncubator } from '@/shared/assets'
+import { useAuthMeQuery } from '@/shared/services/auth-api/auth-api'
 import { Button } from '@/shared/ui'
 import { MenuHeader } from '@/shared/ui/menu-header'
 
 import s from './header.module.scss'
 
 export const Header = () => {
-  //хук для отрисовки кнопки или менюшки
-  // const [data, setData] = useState(false)
-  const data = true
+  const { data, isLoading } = useAuthMeQuery()
+
+  if (isLoading) {
+    return <div>LOADING...</div>
+  }
 
   return (
     <header className={s.header}>
       <LogoIncubator />
-      {/*//src={data.avatar}*/}
-      {data && <MenuHeader email={'Spivak@gmail.com'} name={'Spivak'} />}
+      {data && <MenuHeader email={data.email} name={data.name} src={data.avatar} />}
       {!data && <Button variant={'primary'}>Sign In</Button>}
     </header>
   )
