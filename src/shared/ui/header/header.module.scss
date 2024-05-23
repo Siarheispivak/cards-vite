@@ -1,9 +1,14 @@
 .header {
   display: flex;
   justify-content: space-between;
+
   height: 60px;
   padding: 12px 136px;
-  border-bottom: 1px solid var(--Dark-500, #333);
-  background: var(--Dark-700, #171717);
-}
 
+  background: var(--Dark-700, #171717);
+  border-bottom: 1px solid var(--Dark-500, #333);
+
+  .signIn {
+    text-decoration: none;
+  }
+}
