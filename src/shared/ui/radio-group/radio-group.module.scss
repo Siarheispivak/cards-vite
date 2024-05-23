@@ -1,7 +1,3 @@
-button {
-  all: unset;
-}
-
 .root {
   display: flex;
   flex-direction: column;
@@ -68,9 +64,7 @@ button {
 
   &:hover {
     cursor: pointer;
-  }
 
-  button {
-    all: unset;
+    //button {all: unset;}
   }
 }
