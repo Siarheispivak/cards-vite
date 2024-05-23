@@ -1,7 +1,8 @@
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 
-import { signInSchema } from '@/features/auth/lib/schemas/sign-in-schema/sign-in-schema'
+import { signInSchema } from '@/features/auth'
+import { routes } from '@/shared/const'
 import { Button, Card, Typography } from '@/shared/ui'
 import { ControlledCheckbox, ControlledTextField } from '@/shared/ui/controlled'
 import { DevTool } from '@hookform/devtools'
@@ -70,7 +71,7 @@ export const SignInForm = (props: Props) => {
           <Typography as={'a'} className={s.dontHaveAnAccount} variant={'body2'}>
             Dont have an account?
           </Typography>
-          <Typography as={Link} className={s.singUp} to={'someWere'} variant={'link1'}>
+          <Typography as={Link} className={s.singUp} to={routes.AUTH.SIGN_UP} variant={'link1'}>
             Sign Up
           </Typography>
         </div>

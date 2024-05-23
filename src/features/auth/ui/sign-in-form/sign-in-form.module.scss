@@ -3,6 +3,10 @@
   flex-direction: column;
   gap: 11px;
 
+  &:last-child {
+    text-align: center;
+  }
+
   .title {
     margin-bottom: 16px;
     color: var(--color-light-100, #fff);
@@ -35,7 +39,7 @@
     text-align: center;
   }
 
-  .signUp {
+  .singUp {
     font-size: var(--font-size-m);
     font-weight: var(--font-weight-bold);
     color: var(--color-accent-500);
