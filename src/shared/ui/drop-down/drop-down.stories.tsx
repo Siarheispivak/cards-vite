@@ -1,6 +1,5 @@
 import { EditIcon } from '@/shared/assets'
-import { Button } from '@/shared/ui'
-import { Dropdown, DropdownItemWithIcon } from '@/shared/ui/'
+import { Button, Dropdown, DropdownItemWithIcon } from '@/shared/ui'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
