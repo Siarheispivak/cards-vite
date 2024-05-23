@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 
 import { ProfileIcon, SignOutIcon } from '@/shared/assets'
 import { routes } from '@/shared/const'
+import { useLogoutMutation } from '@/shared/services'
 import { Typography } from '@/shared/ui'
 import { Avatar } from '@/shared/ui/avatar'
 import { Dropdown, DropdownItem, DropdownItemWithIcon } from '@/shared/ui/drop-down'
@@ -15,7 +16,7 @@ type Props = {
 }
 
 export const MenuHeader = ({ email, name, src }: Props) => {
-  //хук logout
+  const [logout] = useLogoutMutation()
   // хук navigate на  profile
   const trigger = (
     <div className={s.trigger}>
@@ -45,8 +46,7 @@ export const MenuHeader = ({ email, name, src }: Props) => {
           onClick={handleGoToProfile}
           text={'My profile'}
         />
-        <DropdownItemWithIcon icon={<SignOutIcon />} text={'Sign Out'} />
-        {/*//onClick={() => logOut()}*/}
+        <DropdownItemWithIcon icon={<SignOutIcon />} onClick={() => logout()} text={'Sign Out'} />
       </Dropdown>
     </div>
   )
