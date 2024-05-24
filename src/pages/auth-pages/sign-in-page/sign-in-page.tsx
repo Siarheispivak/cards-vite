@@ -16,9 +16,5 @@ export const SignInPage = () => {
     }
   }
 
-  return (
-    <>
-      <SignInForm onSubmit={handleSignIn} />
-    </>
-  )
+  return <SignInForm onSubmit={handleSignIn} />
 }

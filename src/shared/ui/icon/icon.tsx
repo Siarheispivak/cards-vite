@@ -3,7 +3,7 @@ import sprite from './sprite/sprite.svg'
 type Props = {
   className?: string
   height?: string
-  iconId: 'arrow_down' | 'arrow_up'
+  iconId: 'arrow_down' | 'arrow_up' | 'close' | 'eye_off_outline' | 'eye_outline' | 'search'
   viewBox?: string
   width?: string
 }

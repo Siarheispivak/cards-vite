@@ -1,10 +1,6 @@
-import { CheckEmailForm } from '@/features/auth'
+import { CheckEmail } from '@/features/auth'
 
 export const CheckEmailPage = () => {
   //получить мэйл с глобального стейта
-  return (
-    <>
-      <CheckEmailForm email={'test@gmail.com'} />
-    </>
-  )
+  return <CheckEmail email={'test@gmail.com'} />
 }

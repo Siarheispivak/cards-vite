@@ -17,9 +17,5 @@ export const SignUpPage = () => {
     }
   }
 
-  return (
-    <>
-      <SignUpForm onSubmit={handleSignUp} />
-    </>
-  )
+  return <SignUpForm onSubmit={handleSignUp} />
 }

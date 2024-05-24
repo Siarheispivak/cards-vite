@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 import { signUpSchema } from '@/features/auth'
 import { routes } from '@/shared/const'
-import { Button, Card, ControlledTextField, Typography } from '@/shared/ui'
+import { Button, Card, Typography } from '@/shared/ui'
+import { ControlledInput } from '@/shared/ui/controlled'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
@@ -14,11 +15,7 @@ type Props = {
   onSubmit: (data: SignUpFormType) => void
 }
 export const SignUpForm = (props: Props) => {
-  const {
-    control,
-    formState: { errors },
-    handleSubmit,
-  } = useForm({
+  const { control, handleSubmit } = useForm({
     defaultValues: { email: '', password: '', passwordConfirmation: '' },
     mode: 'onSubmit',
     resolver: zodResolver(signUpSchema),
@@ -31,22 +28,15 @@ export const SignUpForm = (props: Props) => {
           Sign Up
         </Typography>
         <form onSubmit={handleSubmit(props.onSubmit)}>
-          <ControlledTextField
+          <ControlledInput control={control} label={'Email'} name={'email'} />
+          <ControlledInput
             control={control}
-            errorMessage={errors.email?.message}
-            label={'Email'}
-            name={'email'}
-          />
-          <ControlledTextField
-            control={control}
-            errorMessage={errors.password?.message}
             label={'Password'}
             name={'password'}
             type={'password'}
           />
-          <ControlledTextField
+          <ControlledInput
             control={control}
-            errorMessage={errors.password?.message}
             label={'Confirm Password'}
             name={'passwordConfirmation'}
             type={'password'}

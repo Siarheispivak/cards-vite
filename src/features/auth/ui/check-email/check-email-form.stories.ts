@@ -1,11 +1,11 @@
-import { CheckEmailForm } from '@/features/auth'
+import { CheckEmail } from '@/features/auth'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  component: CheckEmailForm,
+  component: CheckEmail,
   tags: ['autodocs'],
   title: 'Auth/Check Email',
-} satisfies Meta<typeof CheckEmailForm>
+} satisfies Meta<typeof CheckEmail>
 
 export default meta
 type Story = StoryObj<typeof meta>

@@ -9,7 +9,8 @@ import s from './check-email-form.module.scss'
 type Props = {
   email: string
 }
-export const CheckEmailForm = ({ email }: Props) => {
+
+export const CheckEmail = ({ email }: Props) => {
   return (
     <Card>
       <div className={s.formContainer}>
