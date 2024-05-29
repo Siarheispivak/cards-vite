@@ -21,6 +21,15 @@ const authApi = baseApi.injectEndpoints({
           }
         },
       }),
+      recoveryPassword: builder.mutation<void, { email: string }>({
+        query: email => {
+          return {
+            body: { email },
+            method: 'POST',
+            url: `v1/auth/recover-password`,
+          }
+        },
+      }),
       signIn: builder.mutation<{ accessToken: string }, LoginArgs>({
         extraOptions: { maxRetries: 2 },
         invalidatesTags: ['AuthMe'],
@@ -45,4 +54,10 @@ const authApi = baseApi.injectEndpoints({
   },
 })
 
-export const { useAuthMeQuery, useLogoutMutation, useSignInMutation, useSignUpMutation } = authApi
+export const {
+  useAuthMeQuery,
+  useLogoutMutation,
+  useRecoveryPasswordMutation,
+  useSignInMutation,
+  useSignUpMutation,
+} = authApi
