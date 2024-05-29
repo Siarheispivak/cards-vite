@@ -1,4 +1,5 @@
 export { CheckEmailForm } from './check-email-form'
+export { ForgotPasswordForm } from './forgot-password-form'
 export { SignInForm } from './sign-in-form'
 export type { SignInFormType } from './sign-in-form'
 export { SignUpForm } from './sign-up-form'
