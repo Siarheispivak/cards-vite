@@ -1,6 +1,6 @@
 import { RouteObject } from 'react-router-dom'
 
-import { CheckEmailPage, SignInPage, SignUpPage } from '@/pages'
+import { CheckEmailPage, ForgotPasswordPage, SignInPage, SignUpPage } from '@/pages'
 import { routes } from '@/shared/const'
 
 export const publicRoutes: RouteObject[] = [
@@ -15,5 +15,9 @@ export const publicRoutes: RouteObject[] = [
   {
     element: <CheckEmailPage />,
     path: routes.AUTH.CHECK_EMAIL,
+  },
+  {
+    element: <ForgotPasswordPage />,
+    path: routes.AUTH.FORGOT_PASSWORD,
   },
 ]

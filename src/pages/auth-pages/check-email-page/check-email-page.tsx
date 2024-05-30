@@ -1,6 +1,12 @@
 import { CheckEmail } from '@/features/auth'
+import { useAppSelector } from '@/shared/lib/hooks'
 
 export const CheckEmailPage = () => {
-  //получить мэйл с глобального стейта
-  return <CheckEmail email={'test@gmail.com'} />
+  const email = useAppSelector(state => state.app.email)
+
+  return (
+    <>
+      <CheckEmail email={email} />
+    </>
+  )
 }
