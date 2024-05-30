@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 
 import { signInSchema } from '@/features/auth'
 import { routes } from '@/shared/const'
-import { Button, Card, Typography } from '@/shared/ui'
-import { ControlledCheckbox, ControlledTextField } from '@/shared/ui/controlled'
-import { DevTool } from '@hookform/devtools'
+import { Button, Card, ControlledInput, Typography } from '@/shared/ui'
+import { ControlledCheckbox } from '@/shared/ui/controlled'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
@@ -43,7 +42,12 @@ export const SignInForm = (props: Props) => {
               label={'Remember Me'}
               name={'rememberMe'}
             />
-            <Typography as={Link} className={s.recoveryPassword} to={'someWere'} variant={'link1'}>
+            <Typography
+              as={Link}
+              className={s.recoveryPassword}
+              to={routes.AUTH.FORGOT_PASSWORD}
+              variant={'link1'}
+            >
               Forgot Password?
             </Typography>
             <Button className={s.button} fullWidth type={'submit'}>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { ForgotPasswordSchema } from '@/features/auth'
 import { routes } from '@/shared/const'
-import { Button, Card, ControlledTextField, Typography } from '@/shared/ui'
+import { Button, Card, ControlledInput, Typography } from '@/shared/ui'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
@@ -31,9 +31,9 @@ export const ForgotPasswordForm = ({ onSubmit }: Props) => {
       </Typography>
       <div className={s.formContainer}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <ControlledTextField
+          <ControlledInput
             control={control}
-            errorMessage={errors.email?.message}
+            error={errors.email?.message}
             label={'Email'}
             name={'email'}
           />
