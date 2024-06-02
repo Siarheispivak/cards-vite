@@ -1,1 +1,1 @@
-export { CheckEmail } from './check-email-form'
+export { CheckEmail } from './check-email'

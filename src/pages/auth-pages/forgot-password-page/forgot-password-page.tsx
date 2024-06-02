@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 
-import { appAction } from '@/app/modal'
 import { ForgotPasswordForm } from '@/features/auth'
 import { routes } from '@/shared/const'
 import { useActions } from '@/shared/lib'
 import { useRecoveryPasswordMutation } from '@/shared/services'
+
+import { appAction } from '../../../shared/modal'
 
 export const ForgotPasswordPage = () => {
   const [recoveryPassword] = useRecoveryPasswordMutation()
