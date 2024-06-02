@@ -1,14 +1,17 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-
+  width: 100%;
   height: 60px;
-  padding: 12px 136px;
-
   background: var(--Dark-700, #171717);
   border-bottom: 1px solid var(--Dark-500, #333);
 
-  .signIn {
-    text-decoration: none;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
   }
 }

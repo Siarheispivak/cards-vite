@@ -9,23 +9,21 @@ import { MenuHeader } from '@/shared/ui/menu-header'
 import s from './header.module.scss'
 
 export const Header = () => {
-  const { data, isLoading } = useAuthMeQuery()
-
-  if (isLoading) {
-    return <div>LOADING...</div>
-  }
+  const { data } = useAuthMeQuery()
 
   return (
     <header className={s.header}>
-      <LogoIncubator />
-      {data && <MenuHeader email={data.email} name={data.name} src={data.avatar} />}
-      {!data && (
-        <Button variant={'primary'}>
-          <Typography as={Link} className={s.signIn} to={routes.AUTH.SING_IN} variant={'link1'}>
-            Sign In
-          </Typography>
-        </Button>
-      )}
+      <div className={s.container}>
+        <LogoIncubator />
+        {data && <MenuHeader email={data.email} name={data.name} src={data.avatar} />}
+        {!data && (
+          <Button variant={'primary'}>
+            <Typography as={Link} className={s.signIn} to={routes.AUTH.SING_IN} variant={'link1'}>
+              Sign In
+            </Typography>
+          </Button>
+        )}
+      </div>
     </header>
   )
 }
