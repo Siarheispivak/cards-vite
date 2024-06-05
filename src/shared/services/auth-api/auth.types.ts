@@ -29,3 +29,8 @@ export type SignUpResponse = {
   sendConfirmationEmail: boolean
   subject: string
 }
+export type VerificationEmailArgs = {
+  email: string
+  html?: string
+  subject?: string
+}

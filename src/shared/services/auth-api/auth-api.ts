@@ -1,4 +1,10 @@
-import { LoginArgs, SignUpArgs, SignUpResponse, User } from '@/shared/services/auth-api/auth.types'
+import {
+  LoginArgs,
+  SignUpArgs,
+  SignUpResponse,
+  User,
+  VerificationEmailArgs,
+} from '@/shared/services/auth-api/auth.types'
 import { baseApi } from '@/shared/services/base-api'
 
 const authApi = baseApi.injectEndpoints({
@@ -21,12 +27,23 @@ const authApi = baseApi.injectEndpoints({
           }
         },
       }),
-      recoveryPassword: builder.mutation<void, { email: string }>({
-        query: email => {
+      recoveryPassword: builder.mutation<void, VerificationEmailArgs>({
+        query: body => {
           return {
-            body: { email },
+            body: body,
             method: 'POST',
             url: `v1/auth/recover-password`,
+          }
+        },
+      }),
+      resetPassword: builder.mutation<void, Pick<SignUpArgs, 'password'> & { token: string }>({
+        query: body => {
+          return {
+            body: {
+              password: body.password,
+            },
+            method: 'POST',
+            url: `v1/auth/reset-password/${body.token}`,
           }
         },
       }),
@@ -58,6 +75,7 @@ export const {
   useAuthMeQuery,
   useLogoutMutation,
   useRecoveryPasswordMutation,
+  useResetPasswordMutation,
   useSignInMutation,
   useSignUpMutation,
 } = authApi
