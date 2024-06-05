@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react'
 
-import defAva from '@/shared/assets/images/default-ava.jpg'
+import { DevAva } from '@/shared/assets'
 
 import s from './avatar.module.scss'
 
@@ -15,7 +15,7 @@ export const Avatar = ({ name, size = 36, src }: AvatarProps) => {
       alt={`${name}'avatar'`}
       className={s.avatar}
       height={size}
-      src={src ?? defAva}
+      src={src ?? DevAva}
       width={size}
     />
   )
