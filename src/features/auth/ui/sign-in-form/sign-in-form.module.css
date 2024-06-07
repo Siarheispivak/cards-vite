@@ -1,0 +1,41 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.formContainer:last-child {
+  text-align: center;
+}
+.formContainer .title {
+  margin-bottom: 16px;
+  color: var(--color-light-100, #fff);
+  text-align: center;
+}
+.formContainer .form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 12px;
+  text-align: left;
+}
+.formContainer .form .button {
+  margin-top: 46px;
+}
+.formContainer .form .recoveryPassword {
+  align-self: end;
+  width: fit-content;
+  text-decoration: none;
+}
+.formContainer .dontHaveAnAccount {
+  color: var(--color-light-900, #c3c1c7);
+  text-align: center;
+}
+.formContainer .singUp {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent-500);
+  text-decoration-line: underline;
+}
+
+/*# sourceMappingURL=sign-in-form.module.css.map */
