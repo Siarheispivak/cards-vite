@@ -4,6 +4,8 @@ import { SignUpForm, SignUpFormType } from '@/features/auth'
 import { routes } from '@/shared/const'
 import { useSignUpMutation } from '@/shared/services'
 
+import s from '@/pages/profile-page/profile-page.module.scss'
+
 export const SignUpPage = () => {
   const [signUp] = useSignUpMutation()
   const navigate = useNavigate()
@@ -17,5 +19,9 @@ export const SignUpPage = () => {
     }
   }
 
-  return <SignUpForm onSubmit={handleSignUp} />
+  return (
+    <div className={s.container}>
+      <SignUpForm onSubmit={handleSignUp} />
+    </div>
+  )
 }

@@ -4,9 +4,10 @@ import { ForgotPasswordForm } from '@/features/auth'
 import { emailMessage } from '@/pages/auth-pages/forgot-password-page/email-message'
 import { routes } from '@/shared/const'
 import { useActions } from '@/shared/lib'
+import { appAction } from '@/shared/modal'
 import { VerificationEmailArgs, useRecoveryPasswordMutation } from '@/shared/services'
 
-import { appAction } from '../../../shared/modal'
+import s from '@/pages/profile-page/profile-page.module.scss'
 
 export const ForgotPasswordPage = () => {
   const [recoveryPassword] = useRecoveryPasswordMutation()
@@ -25,5 +26,9 @@ export const ForgotPasswordPage = () => {
     }
   }
 
-  return <ForgotPasswordForm onSubmit={handleResetPassword} />
+  return (
+    <div className={s.container}>
+      <ForgotPasswordForm onSubmit={handleResetPassword} />
+    </div>
+  )
 }

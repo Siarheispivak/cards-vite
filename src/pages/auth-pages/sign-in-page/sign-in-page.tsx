@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { SignInForm, SignInFormType } from '@/features/auth/ui'
 import { useSignInMutation } from '@/shared/services'
 
+import s from '@/pages/profile-page/profile-page.module.scss'
+
 export const SignInPage = () => {
   const [signIn] = useSignInMutation()
   const navigate = useNavigate()
@@ -16,5 +18,9 @@ export const SignInPage = () => {
     }
   }
 
-  return <SignInForm onSubmit={handleSignIn} />
+  return (
+    <div className={s.container}>
+      <SignInForm onSubmit={handleSignIn} />
+    </div>
+  )
 }

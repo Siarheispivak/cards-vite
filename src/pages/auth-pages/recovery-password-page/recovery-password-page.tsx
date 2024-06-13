@@ -4,6 +4,8 @@ import { RecoveryPasswordForm } from '@/features/auth/ui/recovery-password-form/
 import { routes } from '@/shared/const'
 import { SignUpArgs, useResetPasswordMutation } from '@/shared/services'
 
+import s from '@/pages/profile-page/profile-page.module.scss'
+
 export const RecoveryPasswordPage = () => {
   const [resetPassword] = useResetPasswordMutation()
   const { token } = useParams()
@@ -21,5 +23,9 @@ export const RecoveryPasswordPage = () => {
     }
   }
 
-  return <RecoveryPasswordForm onSubmit={resetPasswordHandler} />
+  return (
+    <div className={s.container}>
+      <RecoveryPasswordForm onSubmit={resetPasswordHandler} />
+    </div>
+  )
 }
