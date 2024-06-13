@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { ProfileIcon, SignOutIcon } from '@/shared/assets'
 import { routes } from '@/shared/const'
@@ -17,7 +17,7 @@ type Props = {
 
 export const MenuHeader = ({ email, name, src }: Props) => {
   const [logout] = useLogoutMutation()
-  // хук navigate на  profile
+  const navigate = useNavigate()
   const trigger = (
     <div className={s.trigger}>
       <Avatar name={name} src={src} />
@@ -25,7 +25,7 @@ export const MenuHeader = ({ email, name, src }: Props) => {
   )
 
   const handleGoToProfile = () => {
-    // navigate('/profile')
+    navigate('/profile')
   }
 
   return (

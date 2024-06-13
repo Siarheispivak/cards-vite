@@ -1,18 +1,12 @@
-import { ChangeEvent, useRef, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { ChangeEvent, useState } from 'react'
 
-import { Avatar, Button, Card, ControlledInput, Typography } from '@/shared/ui'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { z } from 'zod'
+import { ProfileForm } from '@/features/profile-info'
+import { Avatar, Button, Card, Typography } from '@/shared/ui'
+import { Icon } from '@/shared/ui/icon'
 
 import s from './profile.module.scss'
 
-export const profileSchema = z.object({
-  name: z.string().trim().min(2, { message: 'Must be at least 2 characters' }),
-})
-
-type FormValues = z.infer<typeof profileSchema>
-type ProfileType = {
+export type ProfileType = {
   avatar: string
   email: string
   name: string
@@ -30,18 +24,9 @@ export const Profile = ({
   onNameChange,
 }: ProfileType) => {
   const [editMode, setEditMode] = useState<boolean>(false)
-  const {
-    control,
-    formState: { errors },
-    handleSubmit,
-  } = useForm<FormValues>({
-    defaultValues: { name: name },
-    mode: 'onSubmit',
-    resolver: zodResolver(profileSchema),
-  })
 
   const updateNickNameHandler = (data: { name: string }) => {
-    if ((data.name = name)) {
+    if (data.name === name) {
       alert('You write the same Nickname')
 
       return setEditMode(false)
@@ -61,69 +46,35 @@ export const Profile = ({
     setEditMode(true)
   }
 
-  const formRef = useRef<HTMLFormElement>(null)
-  const infoForm = editMode ? (
-    <form onSubmit={handleSubmit(updateNickNameHandler)} ref={formRef} style={{ width: '100%' }}>
-      <ControlledInput
-        autoFocus
-        className={s.profileName}
-        control={control}
-        defaultValue={name}
-        error={errors.name?.message}
-        label={'NickName'}
-        name={'name'}
-      />
-      <Button className={s.saveChanges} variant={'primary'}>
-        Save Changes
-      </Button>
-    </form>
-  ) : (
-    <StaticInfo editModeCallback={editModeOn} email={email} name={name} onLogout={onLogout} />
-  )
-
   return (
     <Card>
-      <Typography className={s.personalInfo} variant={'large'}>
-        Personal Information
-      </Typography>
-      <div className={s.photoContainer}>
-        <Avatar name={name} size={100} src={avatar} />
-        {!editMode && (
-          <Button as={'label'} className={s.editAvatarButton} variant={'secondary'}>
-            {/*CAMERA*/}
-            <input
-              aria-label={'Change avatar'}
-              className={s.avtarInput}
-              onChange={updateAvatarHandler}
-              type={'file'}
-            />
-          </Button>
-        )}
-      </div>
-      {infoForm}
-    </Card>
-  )
-}
-type StaticInfoProps = { editModeCallback: () => void } & Pick<
-  ProfileType,
-  'email' | 'name' | 'onLogout'
->
-const StaticInfo = ({ editModeCallback, email, name, onLogout }: StaticInfoProps) => {
-  return (
-    <>
-      <div className={s.nameContainer}>
-        <div className={s.name}>
-          <Typography onDoubleClick={editModeCallback} variant={'h1'}>
-            {name}
-          </Typography>
-          {/*//Edit icon*/}
+      <div className={s.container}>
+        <Typography className={s.personalInfo} variant={'large'}>
+          Personal Information
+        </Typography>
+        <div className={s.photoContainer}>
+          <Avatar name={name} size={100} src={avatar} />
+          {!editMode && (
+            <Button as={'label'} variant={'secondary'}>
+              <Icon height={'30'} iconId={'camera'} width={'30'} />
+              <input
+                aria-label={'Change avatar'}
+                className={s.avtarInput}
+                onChange={updateAvatarHandler}
+                type={'file'}
+              />
+            </Button>
+          )}
         </div>
+        <ProfileForm
+          editMode={editMode}
+          email={email}
+          name={name}
+          onLogout={onLogout}
+          onSubmit={updateNickNameHandler}
+          setEditMode={editModeOn}
+        />
       </div>
-      <Typography variant={'body2'}>{email}</Typography>
-      <Button onClick={onLogout} variant={'secondary'}>
-        {/*logout icon*/}
-        Logout
-      </Button>
-    </>
+    </Card>
   )
 }

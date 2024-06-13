@@ -4,7 +4,11 @@ import { ProfilePage } from '@/pages'
 
 export const privateRoutes: RouteObject[] = [
   {
-    element: <ProfilePage />,
+    element: <div>DECK</div>,
     path: '/',
+  },
+  {
+    element: <ProfilePage />,
+    path: '/profile',
   },
 ]
