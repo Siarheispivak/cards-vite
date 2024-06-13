@@ -20,6 +20,19 @@ const authApi = baseApi.injectEndpoints({
       }),
       logout: builder.mutation<void, void>({
         invalidatesTags: ['AuthMe'],
+        async onQueryStarted(_, { dispatch, queryFulfilled }) {
+          const patchResult = dispatch(
+            authApi.util.updateQueryData('authMe', undefined, () => {
+              return null
+            })
+          )
+
+          try {
+            await queryFulfilled
+          } catch {
+            patchResult.undo()
+          }
+        },
         query: () => {
           return {
             method: 'POST',
@@ -67,6 +80,33 @@ const authApi = baseApi.injectEndpoints({
           }
         },
       }),
+      updateUser: builder.mutation<User, FormData>({
+        invalidatesTags: ['AuthMe'],
+        async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+          const patchResult = dispatch(
+            authApi.util.updateQueryData('authMe', undefined, draft => {
+              const name = arg.get('name')
+
+              if (typeof name === 'string' && draft) {
+                draft.name = name
+              }
+            })
+          )
+
+          try {
+            await queryFulfilled
+          } catch {
+            patchResult.undo()
+          }
+        },
+        query: body => {
+          return {
+            body: body,
+            method: 'PATCH',
+            url: `v1/auth/me`,
+          }
+        },
+      }),
     }
   },
 })
@@ -78,4 +118,5 @@ export const {
   useResetPasswordMutation,
   useSignInMutation,
   useSignUpMutation,
+  useUpdateUserMutation,
 } = authApi
