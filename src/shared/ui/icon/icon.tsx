@@ -3,7 +3,16 @@ import sprite from './sprite/sprite.svg'
 type Props = {
   className?: string
   height?: string
-  iconId: 'arrow_down' | 'arrow_up' | 'close' | 'eye_off_outline' | 'eye_outline' | 'search'
+  iconId:
+    | 'arrow_down'
+    | 'arrow_up'
+    | 'camera'
+    | 'close'
+    | 'edit'
+    | 'eye_off_outline'
+    | 'eye_outline'
+    | 'logout'
+    | 'search'
   viewBox?: string
   width?: string
 }
