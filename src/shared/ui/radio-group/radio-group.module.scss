@@ -5,6 +5,8 @@
 }
 
 .item {
+  cursor: pointer;
+
   width: 16px;
   height: 16px;
 
@@ -12,7 +14,7 @@
   border: 2px solid var(--color-accent-500);
   border-radius: 100%;
 
-  :disabled {
+  &:disabled {
     cursor: initial;
     border-color: var(--color-accent-900);
   }
@@ -28,8 +30,14 @@
   }
 
   &:hover:not([disabled]) {
-    background: var(--color-dark-500);
+    background: var(--color-accent-700);
     box-shadow: 0 0 0 8px var(--color-dark-500);
+  }
+
+  &[data-state='checked'] {
+    z-index: 1; /* Устанавливаем элемент выше фона с тенями */
+    background: var(--color-accent-700);
+    border-color: var(--color-accent-700);
   }
 }
 

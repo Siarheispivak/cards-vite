@@ -6,6 +6,7 @@ import * as RadixRadioGroup from '@radix-ui/react-radio-group'
 import s from './radio-group.module.scss'
 
 export type RadioItem = {
+  id: string
   label: string
   value: string
 }
