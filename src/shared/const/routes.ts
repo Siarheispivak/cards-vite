@@ -8,6 +8,6 @@ export const routes = {
   },
   CARDS: '/decks/:deckId',
   DECKS: '/',
-  LEARN: '/learn',
+  LEARN: '/learn-page',
   PROFILE: '/profile',
 }
