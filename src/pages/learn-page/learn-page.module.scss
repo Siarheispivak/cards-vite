@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin-top: 24px;
+
+  > :last-child {
+    //Card
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+
+    .title {
+      align-self: center;
+    }
+  }
+
+  .count {
+    margin-top: 11px;
+    margin-bottom: 18px;
+    color: var(--color-dark-100);
+  }
+}
