@@ -1,0 +1,10 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-top: 30px;
+
+  > :last-child {
+    margin-top: 16px;
+  }
+}

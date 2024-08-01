@@ -4,6 +4,7 @@ type Props = {
   className?: string
   height?: string
   iconId:
+    | 'arrow_back_outline'
     | 'arrow_down'
     | 'arrow_up'
     | 'camera'
@@ -13,6 +14,8 @@ type Props = {
     | 'eye_outline'
     | 'logout'
     | 'search'
+    | 'star'
+    | 'star_outline'
   viewBox?: string
   width?: string
 }

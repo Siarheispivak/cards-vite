@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { RadioGroup } from './radio-group'
+import { RadioGroup } from '@/shared/ui'
 
 const meta = {
   argTypes: {
@@ -16,10 +16,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const data = [
-  { label: 'React', value: 'react' },
-  { label: 'Redux', value: 'redux' },
-  { label: 'TypeScript', value: 'typescript' },
-  { label: 'JavaScript', value: 'javascript' },
+  { id: '1', label: 'React', value: 'react' },
+  { id: '2', label: 'Redux', value: 'redux' },
+  { id: '3', label: 'TypeScript', value: 'typescript' },
+  { id: '4', label: 'JavaScript', value: 'javascript' },
 ]
 
 export const NotSelectedValue: Story = {
@@ -38,7 +38,7 @@ export const SelectedValue: Story = {
       // Ваша логика обработки изменения значения
     },
     options: data,
-    value: 'redux',
+    value: 'typescript',
   },
 }
 

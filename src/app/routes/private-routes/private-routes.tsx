@@ -1,6 +1,8 @@
 import { RouteObject } from 'react-router-dom'
 
 import { ProfilePage } from '@/pages'
+import { LearnPage } from '@/pages/learn-page/learn-page'
+import { routes } from '@/shared/const'
 
 export const privateRoutes: RouteObject[] = [
   {
@@ -9,6 +11,10 @@ export const privateRoutes: RouteObject[] = [
   },
   {
     element: <ProfilePage />,
-    path: '/profile',
+    path: routes.PROFILE,
+  },
+  {
+    element: <LearnPage />,
+    path: routes.LEARN,
   },
 ]

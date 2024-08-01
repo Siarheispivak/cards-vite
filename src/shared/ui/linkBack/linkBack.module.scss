@@ -1,0 +1,19 @@
+.container {
+  cursor: pointer;
+
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  width: max-content;
+
+  &:hover {
+    color: var(--color-accent-500);
+    transition: 0.5s;
+  }
+
+  .linkBack {
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+  }
+}
