@@ -16,6 +16,7 @@ export { MenuHeader } from './menu-header'
 export { Profile } from './profile'
 export { RadioGroup } from './radio-group'
 export type { RadioItem } from './radio-group'
+export { RatingStar } from './ratingStar'
 export { Select } from './select'
 export {
   HeaderTable,
