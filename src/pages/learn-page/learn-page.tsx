@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { LearnForm, LearnImage } from '@/features/learn-info'
-import { useGetDeckQuery, useGetLearnCardQuery } from '@/shared/services/learn-api'
 import { Button, Card, LinkBack, Typography } from '@/shared/ui'
 
 import s from './learn-page.module.scss'
+
+import { useGetDeckQuery, useGetLearnCardQuery } from '../../shared/services/card-api'
 
 export const LearnPage = () => {
   const [show, setShow] = useState(false)
