@@ -6,9 +6,9 @@ import {
   GetDeckResponse,
   GetLearnGradeArgs,
   LearnResponse,
-} from './learn.types'
+} from './card.types'
 
-export const learnApi = baseApi.injectEndpoints({
+export const cardApi = baseApi.injectEndpoints({
   endpoints: builder => {
     return {
       createLearnGrade: builder.mutation<LearnResponse, CreateLearnGradeArgs>({
@@ -34,4 +34,4 @@ export const learnApi = baseApi.injectEndpoints({
   },
 })
 
-export const { useCreateLearnGradeMutation, useGetDeckQuery, useGetLearnCardQuery } = learnApi
+export const { useCreateLearnGradeMutation, useGetDeckQuery, useGetLearnCardQuery } = cardApi
