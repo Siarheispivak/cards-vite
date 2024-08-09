@@ -16,6 +16,7 @@ type Props = {
     | 'search'
     | 'star'
     | 'star_outline'
+
   viewBox?: string
   width?: string
 }
