@@ -74,4 +74,5 @@ export const {
   useDeleteCardMutation,
   useGetDeckQuery,
   useGetLearnCardQuery,
+  useUpdateCardMutation,
 } = cardApi
