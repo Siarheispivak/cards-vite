@@ -12,10 +12,12 @@ type Props = {
     | 'edit'
     | 'eye_off_outline'
     | 'eye_outline'
+    | 'image_outline'
     | 'logout'
     | 'search'
     | 'star'
     | 'star_outline'
+    | 'trash_outline'
 
   viewBox?: string
   width?: string

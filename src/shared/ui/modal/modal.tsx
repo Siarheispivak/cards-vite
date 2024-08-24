@@ -12,7 +12,7 @@ import s from './modal.module.scss'
 type Props = {
   children: ReactNode
   className?: string
-  footerButtonTitle: string
+  footerButtonTitle?: string
   onOpenChange: (value: boolean) => void
   open: boolean
   // scroll?: string  // ?? дл прокрутки контента модалки
@@ -40,7 +40,7 @@ export const Modal = ({
               <Card>
                 <ModalHeader title={title} />
                 <ModalContent>{children}</ModalContent> {/*scroll classname*/}
-                <ModalFooter title={footerButtonTitle} />
+                <ModalFooter onCloseModal={onOpenChange} title={footerButtonTitle} />
               </Card>
             </RadixDialog.Content>
           </RadixDialog.Overlay>

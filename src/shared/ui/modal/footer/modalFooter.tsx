@@ -3,12 +3,13 @@ import { Button } from '@/shared/ui'
 import s from './modalFooter.module.scss'
 
 type Props = {
-  title: string
+  onCloseModal: (value: boolean) => void
+  title?: string | undefined
 }
-export const ModalFooter = ({ title }: Props) => {
+export const ModalFooter = ({ onCloseModal, title }: Props) => {
   return (
     <div className={s.buttonWrapper}>
-      <Button onClick={() => {}} type={'button'} variant={'secondary'}>
+      <Button onClick={() => onCloseModal(false)} type={'button'} variant={'secondary'}>
         Close
       </Button>
       <Button type={'submit'}>{title}</Button>

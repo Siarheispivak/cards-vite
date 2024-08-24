@@ -14,20 +14,20 @@ import {
 export const cardApi = baseApi.injectEndpoints({
   endpoints: builder => {
     return {
+      createCard: builder.mutation<GetCardByIdResponse, { data: FormData; id: string }>({
+        invalidatesTags: ['Cards'],
+        query: args => ({
+          body: args.data,
+          method: 'POST',
+          url: `v1/decks/${args.id}/cards`,
+        }),
+      }),
       createLearnGrade: builder.mutation<LearnResponse, CreateLearnGradeArgs>({
         invalidatesTags: ['Cards'],
         query: args => ({
           body: args,
           method: 'POST',
           url: `v1/decks/${args.cardId}/learn`,
-        }),
-      }),
-      creteCard: builder.mutation<GetCardByIdResponse, { data: FormData; id: string }>({
-        invalidatesTags: ['Cards'],
-        query: args => ({
-          body: args.data,
-          method: 'POST',
-          url: `v1/decks/${args.id}/cards`,
         }),
       }),
       deleteCard: builder.mutation<void, { id: string }>({
@@ -69,4 +69,10 @@ export const cardApi = baseApi.injectEndpoints({
   },
 })
 
-export const { useGetDeckQuery, useGetLearnCardQuery } = cardApi
+export const {
+  useCreateCardMutation,
+  useDeleteCardMutation,
+  useGetDeckQuery,
+  useGetLearnCardQuery,
+  useUpdateCardMutation,
+} = cardApi
