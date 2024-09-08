@@ -11,7 +11,6 @@ export { Header } from './header'
 export { Icon } from './icon'
 export { Input } from './input'
 export type { InputProps } from './input'
-export { InputFile } from './inputFile'
 export { LinkBack } from './linkBack'
 export { MenuHeader } from './menu-header'
 export { Modal } from './modal'
@@ -20,6 +19,7 @@ export { RadioGroup } from './radio-group'
 export type { RadioItem } from './radio-group'
 export { RatingStar } from './ratingStar'
 export { Select } from './select'
+export { Spinner } from './spinner'
 export {
   HeaderTable,
   Table,

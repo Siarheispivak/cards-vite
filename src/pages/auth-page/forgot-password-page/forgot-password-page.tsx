@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
 import { ForgotPasswordForm } from '@/features/auth'
-import { emailMessage } from '@/pages/auth-pages/forgot-password-page/email-message'
+import { emailMessage } from '@/pages/auth-page/forgot-password-page/email-message'
 import { routes } from '@/shared/const'
 import { useActions } from '@/shared/lib'
 import { appAction } from '@/shared/modal'

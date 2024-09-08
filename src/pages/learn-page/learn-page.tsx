@@ -2,11 +2,10 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { LearnForm, LearnImage } from '@/features/learn-info'
+import { useGetDeckQuery, useGetLearnCardQuery } from '@/shared/services/card-api'
 import { Button, Card, LinkBack, Typography } from '@/shared/ui'
 
 import s from './learn-page.module.scss'
-
-import { useGetDeckQuery, useGetLearnCardQuery } from '../../shared/services/card-api'
 
 export const LearnPage = () => {
   const [show, setShow] = useState(false)
@@ -20,8 +19,8 @@ export const LearnPage = () => {
   })
 
   const onSubmit = () => {
+    //TODO
     // useCreateLearnGradeMutation
-    //code
   }
 
   //не понимаю почему и там и там deckId,по логике должно быть чтото типо cardId
